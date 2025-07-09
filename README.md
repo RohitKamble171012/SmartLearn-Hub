@@ -31,8 +31,8 @@ SmartLearn Hub is an AI-powered learning platform that helps students and teache
 
 - **Framework**: Next.js 14 (App Router)
 - **Styling**: Tailwind CSS + Framer Motion
-- **Auth**: Google (via NextAuth) *(Coming Soon)*
-- **Database**: MongoDB with Mongoose *(Planned for production)*
+- **Auth**: Google (via NextAuth)
+- **Database**: MongoDB with Mongoose 
 - **UI Enhancements**: Theme Drawer, Motion Animations, Sticky Navbar
 
 ## 📦 Setup Locally
