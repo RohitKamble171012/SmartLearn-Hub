@@ -1,0 +1,57 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --accent: #3b82f6;
+}
+
+.dark {
+  --bg-primary: #1f2937;
+  --bg-secondary: #111827;
+  --text-primary: #f9fafb;
+  --text-secondary: #d1d5db;
+  --accent: #60a5fa;
+}
+
+.blue {
+  --bg-primary: #dbeafe;
+  --bg-secondary: #bfdbfe;
+  --text-primary: #1e40af;
+  --text-secondary: #3730a3;
+  --accent: #2563eb;
+}
+
+.purple {
+  --bg-primary: #f3e8ff;
+  --bg-secondary: #e9d5ff;
+  --text-primary: #581c87;
+  --text-secondary: #7c3aed;
+  --accent: #8b5cf6;
+}
+
+.green {
+  --bg-primary: #dcfce7;
+  --bg-secondary: #bbf7d0;
+  --text-primary: #14532d;
+  --text-secondary: #166534;
+  --accent: #22c55e;
+}
+
+.pink {
+  --bg-primary: #fdf2f8;
+  --bg-secondary: #fce7f3;
+  --text-primary: #831843;
+  --text-secondary: #be185d;
+  --accent: #ec4899;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s, color 0.3s;
+}
