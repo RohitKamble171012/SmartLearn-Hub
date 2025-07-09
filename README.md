@@ -8,8 +8,8 @@ SmartLearn Hub is an AI-powered learning platform that helps students and teache
 - 🤖 GPT-4 Powered Assistant
 - 🎨 Dynamic Theme Support (Light, Dark, Blue, Purple, etc.)
 - 🧠 Smart Registration for Students & Teachers
-- 🔐 Google Authentication (Planned)
-- 📈 Performance Progress Section (Coming Soon)
+- 🔐 Google Authentication 
+- 📈 Performance Progress Section 
 
 ## 📸 Screenshots
 
