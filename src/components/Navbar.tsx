@@ -18,6 +18,7 @@ export default function Navbar() {
   }, []);
 
   const navItems = [
+     { name: "Notes", href: "/notes", icon: "📘" },
     { name: "Quiz", href: "/quiz", icon: "🧩" },
     { name: "AI Assistant", href: "/ai-assistant", icon: "🤖" },
     { name: "Progress", href: "/progress", icon: "📊" },
