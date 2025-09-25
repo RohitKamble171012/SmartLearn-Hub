@@ -61,7 +61,7 @@ export default function NotesPage() {
   async function fetchPublic() {
     setLoadingPublic(true);
     try {
-      const res = await fetch("http://localhost:5000/api/notes?visibility=public");
+      const res = await fetch("${API_BASE}/notes?visibility=public");
       const data = await res.json();
       setPublicNotes(data.notes || []);
     } catch (err) {
@@ -80,7 +80,7 @@ export default function NotesPage() {
         setLoadingMine(false);
         return;
       }
-      const res = await fetch("http://localhost:5000/api/notes/mine", {
+      const res = await fetch("${API_BASE}/notes/mine", {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (!res.ok) {
@@ -133,7 +133,7 @@ export default function NotesPage() {
         fd.append("textContent", form.textContent || "");
       }
 
-      const res = await fetch("http://localhost:5000/api/notes", {
+      const res = await fetch("${API_BASE}/notes", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -172,7 +172,7 @@ export default function NotesPage() {
       const headers: any = {};
       if (token) headers.Authorization = `Bearer ${token}`;
 
-      const res = await fetch(`http://localhost:5000/api/notes/${note._id}/download`, { headers });
+      const res = await fetch(`${API_BASE}/notes/${note._id}/download`, { headers });
       if (!res.ok) {
         const err = await res.json().catch(() => ({}));
         alert("Download failed: " + (err?.message || res.statusText));
@@ -212,7 +212,7 @@ export default function NotesPage() {
         return;
       }
 
-      const res = await fetch(`http://localhost:5000/api/notes/${noteId}`, {
+      const res = await fetch(`${API_BASE}/notes/${noteId}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -251,7 +251,7 @@ export default function NotesPage() {
         // For files, we need to check if it's a text file or PDF
         if (note.fileMime?.startsWith('text/') || note.title?.endsWith('.txt')) {
           // It's a text file, fetch and display content
-          const res = await fetch(`http://localhost:5000/api/notes/${note._id}/download`, { headers });
+          const res = await fetch(`${API_BASE}/notes/${note._id}/download`, { headers });
           if (res.ok) {
             const text = await res.text();
             setFileContent(text);
@@ -614,7 +614,7 @@ export default function NotesPage() {
                 </div>
               ) : selectedNote.isFile && selectedNote.fileMime === "application/pdf" ? (
                 <iframe 
-                  src={`http://localhost:5000/api/notes/${selectedNote._id}/view`}
+                  src={`${API_BASE}/notes/${selectedNote._id}/view`}
                   className="w-full h-full"
                   frameBorder="0"
                   title={selectedNote.title}
