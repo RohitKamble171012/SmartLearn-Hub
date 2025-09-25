@@ -62,7 +62,7 @@ export default function NotesPage() {
   async function fetchPublic() {
     setLoadingPublic(true);
     try {
-      const res = await fetch("${API_BASE}/notes?visibility=public");
+      const res = await fetch(`${API_BASE}/notes?visibility=public`);
       const data = await res.json();
       setPublicNotes(data.notes || []);
     } catch (err) {
@@ -81,7 +81,7 @@ export default function NotesPage() {
         setLoadingMine(false);
         return;
       }
-      const res = await fetch("${API_BASE}/notes/mine", {
+      const res = await fetch(`${API_BASE}/notes/mine`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (!res.ok) {
@@ -134,7 +134,7 @@ export default function NotesPage() {
         fd.append("textContent", form.textContent || "");
       }
 
-      const res = await fetch("${API_BASE}/notes", {
+      const res = await fetch(`${API_BASE}/notes`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
