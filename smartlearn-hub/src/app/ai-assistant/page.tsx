@@ -16,7 +16,8 @@ export default function AIAssistantPage() {
   const [isOnline, setIsOnline] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
   const chatEndRef = useRef<HTMLDivElement | null>(null);
-
+  const API_BASE = process.env.NEXT_PUBLIC_API_BASE || "http://localhost:5000/api";
+  
   // Check if device is mobile
   useEffect(() => {
     const checkIsMobile = () => {
@@ -48,9 +49,9 @@ export default function AIAssistantPage() {
     setMessages(prev => [...prev, userMessage]);
     setInput("");
     setLoading(true);
-
+    
     try {
-      const res = await fetch("http://localhost:5000/api/ai/chat", {
+      const res = await fetch(`${API_BASE}/ai/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: input }),
