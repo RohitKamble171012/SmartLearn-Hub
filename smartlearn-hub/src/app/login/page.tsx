@@ -9,7 +9,8 @@ import { useThemeClasses } from "@/hooks/useThemeClasses";
 export default function LoginPage() {
   const { bgColor, textColor, buttonGreen } = useThemeClasses();
   const router = useRouter();
-
+  const API_BASE = process.env.NEXT_PUBLIC_API_BASE || "http://localhost:5000/api";
+  
   const [form, setForm] = useState({ email: "", password: "" });
   const [loading, setLoading] = useState(false);
 
@@ -25,7 +26,7 @@ export default function LoginPage() {
       const user = userCred.user;
       const idToken = await user.getIdToken();
 
-      const res = await fetch("http://localhost:5000/api/auth/login", {
+      const res = await fetch(`${API_BASE}/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ idToken }),
@@ -54,7 +55,7 @@ export default function LoginPage() {
       const user = result.user;
       const idToken = await user.getIdToken();
 
-      const res = await fetch("http://localhost:5000/api/auth/login", {
+      const res = await fetch(`${API_BASE}/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ idToken }),
