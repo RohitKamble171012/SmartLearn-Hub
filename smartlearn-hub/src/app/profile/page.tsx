@@ -15,7 +15,8 @@ export default function ProfilePage() {
   const [timeAssociated, setTimeAssociated] = useState("");
   const [alert, setAlert] = useState<{ message: string; type: "success" | "error" } | null>(null);
   const [loading, setLoading] = useState(true);
-
+  const API_BASE = process.env.NEXT_PUBLIC_API_BASE || "http://localhost:5000/api";
+  
   // ✅ fetch user profile from backend with fresh token
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, async (fbUser) => {
@@ -25,7 +26,7 @@ export default function ProfilePage() {
       }
       try {
         const token = await getIdToken(fbUser, true);
-        const res = await fetch("http://localhost:5000/api/auth/me", {
+        const res = await fetch(`${API_BASE}/auth/me`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (!res.ok) throw new Error("Failed to fetch profile");
@@ -63,7 +64,7 @@ export default function ProfilePage() {
     e.preventDefault();
     try {
       const token = await auth.currentUser?.getIdToken(true);
-      const res = await fetch("http://localhost:5000/api/auth/update", {
+      const res = await fetch(`${API_BASE}/auth/update`, {
         method: "PUT",
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
         body: JSON.stringify(form),
