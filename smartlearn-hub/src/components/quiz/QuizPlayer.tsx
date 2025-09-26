@@ -3,7 +3,7 @@
 import React, { useEffect, useMemo, useState, useRef } from "react";
 import QuizSidebar from "./QuizSidebar";
 import QuestionCard from "./QuestionCard";
-import { submitQuiz as submitApi } from "@/lib/quizApi";
+import { submitQuiz as submitApi } from "../../lib/quizApi";
 import { useRouter } from "next/navigation";
 
 export default function QuizPlayer({ quiz }: { quiz: any }) {
