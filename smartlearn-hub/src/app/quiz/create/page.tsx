@@ -2,7 +2,7 @@
 "use client";
 import React from "react";
 import dynamic from "next/dynamic";
-import QuizForm from "@/components/quiz/QuizForm";
+import QuizForm from "../../../components/quiz/QuizForm";
 
 export default function CreateQuizPage() {
   return (
