@@ -1,5 +1,5 @@
 // hooks/useThemeClasses.ts
-import { useTheme } from "@/context/ThemeContext";
+import { useTheme } from "../context/ThemeContext";
 
 export function useThemeClasses() {
   const { theme } = useTheme();
