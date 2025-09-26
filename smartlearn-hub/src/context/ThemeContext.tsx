@@ -1,49 +1,48 @@
 "use client";
-import { createContext, useState, useEffect, useContext, ReactNode } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
-type Theme = "math" | "physics" | "chemistry" | "biology" | "cs";
+export type Theme = "light" | "dark" | "blue" | "purple";
 
 interface ThemeContextType {
   theme: Theme;
   setTheme: (theme: Theme) => void;
+  toggleTheme: () => void;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [theme, setTheme] = useState<Theme>("math");
-  const [mounted, setMounted] = useState(false);
+export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [theme, setTheme] = useState<Theme>("light");
 
+  // Load theme from localStorage
   useEffect(() => {
-    setMounted(true);
-    const saved = localStorage.getItem("smartlearn-theme");
-    if (saved && ["math", "physics", "chemistry", "biology", "cs"].includes(saved)) {
-      setTheme(saved as Theme);
-    }
+    const stored = localStorage.getItem("theme") as Theme | null;
+    if (stored) setTheme(stored);
   }, []);
 
+  // Save theme to localStorage
   useEffect(() => {
-    if (!mounted) return;
+    localStorage.setItem("theme", theme);
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
 
-    localStorage.setItem("smartlearn-theme", theme);
-
-    const html = document.documentElement;
-    const themeClasses = ["math", "physics", "chemistry", "biology", "cs"];
-    themeClasses.forEach(cls => html.classList.remove(cls));
-    html.classList.add(theme);
-  }, [theme, mounted]);
-
-  if (!mounted) return null;
+  const toggleTheme = () => {
+    // Just an example: switch between light and dark only
+    setTheme(prev => (prev === "dark" ? "light" : "dark"));
+  };
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
+    <ThemeContext.Provider value={{ theme, setTheme, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   );
 };
 
+// ✅ Hook to use theme
 export const useTheme = () => {
-  const ctx = useContext(ThemeContext);
-  if (!ctx) throw new Error("useTheme must be used within ThemeProvider");
-  return ctx;
+  const context = useContext(ThemeContext);
+  if (!context) {
+    throw new Error("useTheme must be used within ThemeProvider");
+  }
+  return context;
 };
