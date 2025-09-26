@@ -39,19 +39,28 @@ const allowedOrigins = [
 ];
 
 app.use(cors({
-  origin: function (origin, callback) {
-    // Allow requests with no origin (like mobile apps or curl requests)
-    if (!origin) return callback(null, true);
-    
-    if (allowedOrigins.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
+  origin: (origin, callback) => {
+    if (!origin) return callback(null, true); // Allow server-to-server or curl requests
+
+    const allowedOrigins = [
+      "http://localhost:3000",
+      "https://smart-learn-hub-web.vercel.app",
+      "https://smart-learn-hub-isqlbv085-rohit-s-projects-ecacb526.vercel.app"
+    ];
+
+    // Allow any vercel preview deployment
+    if (
+      allowedOrigins.includes(origin) ||
+      /\.vercel\.app$/.test(origin) || 
+      /\.onrender\.com$/.test(origin) // also allow your Render backend domain
+    ) {
+      return callback(null, true);
     }
+
+    return callback(new Error("Not allowed by CORS"), false);
   },
   credentials: true
 }));
-
 app.use(morgan('combined')); // Logging
 app.use(express.json({limit: "10mb"}));
 app.use(express.urlencoded({ extended: true }));
