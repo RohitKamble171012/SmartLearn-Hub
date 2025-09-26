@@ -1,5 +1,5 @@
 import { getAuthHeaders } from "./auth";
-import type { Quiz } from "@/types/quiz";
+import type { Quiz } from "../types/quiz";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE || "http://localhost:5000/api";
 
