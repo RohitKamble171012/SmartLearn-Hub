@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { getProgress } from "@/lib/quizApi";
-import { useTheme } from "@/context/ThemeContext";
+import { getProgress } from "../../lib/quizApi";
+import { useTheme } from "../../context/ThemeContext";
 import {
   BarChart,
   Bar,
