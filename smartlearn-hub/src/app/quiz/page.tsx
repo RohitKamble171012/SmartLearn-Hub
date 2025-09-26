@@ -1,8 +1,8 @@
 // src/app/quiz/page.tsx
 "use client";
 import React, { useEffect, useState } from "react";
-import { listQuizzes } from "@/lib/quizApi";
-import { auth } from "@/lib/firebaseClient";
+import { listQuizzes } from "../../lib/quizApi";
+import { auth } from "../../lib/firebaseClient";
 import { getIdToken } from "firebase/auth";
 import Link from "next/link";
 
