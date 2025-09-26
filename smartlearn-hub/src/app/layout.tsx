@@ -4,7 +4,7 @@ import { ThemeProvider } from "../context/ThemeContext";
 import { AuthProvider } from "../context/AuthContext"; // ✅ import your AuthProvider
 import Navbar from "../components/Navbar";
 import ThemeDrawer from "../components/ThemeDrawer";
-import Footer from "@/components/Footer";
+import Footer from "../components/Footer";
 
 export const metadata: Metadata = {
   title: "SmartLearn Hub - AI-Powered Learning Platform",
