@@ -1,4 +1,4 @@
-import "../styles/globals.css";
+import "./globals.css";
 import type { Metadata } from "next";
 import { ThemeProvider } from "../context/ThemeContext";
 import { AuthProvider } from "../context/AuthContext"; // ✅ import your AuthProvider
