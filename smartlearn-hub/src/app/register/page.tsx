@@ -1,9 +1,9 @@
 "use client";
 import { useState } from "react";
-import { useThemeClasses } from "@/hooks/useThemeClasses";
+import { useThemeClasses } from "../../hooks/useThemeClasses";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { auth } from "@/lib/firebaseClient";
+import { auth } from "../../lib/firebaseClient";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
 export default function RegisterPage() {
