@@ -81,7 +81,7 @@ export default function ThemeDrawer() {
                 <motion.span
                   className="block w-full h-full rounded-full bg-white bg-opacity-30"
                   animate={{ rotate: 360 }}
-                  transition={{ loop: Infinity, duration: 2, ease: "linear" }}
+                  transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
                 />
               )}
             </motion.button>
