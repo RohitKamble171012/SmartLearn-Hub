@@ -2,8 +2,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { useRouter, useParams } from "next/navigation";
-import { getQuiz } from "@/lib/quizApi";
-import QuizPlayer from "@/components/quiz/QuizPlayer";
+import { getQuiz } from "../../../../lib/quizApi";
+import QuizPlayer from "../../../../components/quiz/QuizPlayer";
 
 export default function StartQuizPage() {
   const params = useParams();
