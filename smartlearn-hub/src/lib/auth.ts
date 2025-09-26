@@ -1,4 +1,4 @@
-import { auth } from "@/lib/firebaseClient";
+import { auth } from "../lib/firebaseClient";
 
 export async function getAuthToken(): Promise<string | null> {
   const user = auth.currentUser;
