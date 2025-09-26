@@ -1,7 +1,7 @@
 // src/components/quiz/QuizForm.tsx
 "use client";
 import React, { useState } from "react";
-import { createQuiz } from "@/lib/quizApi";
+import { createQuiz } from "../../lib/quizApi";
 import { useRouter } from "next/navigation";
 
 export default function QuizForm() {
