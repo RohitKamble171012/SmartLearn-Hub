@@ -3,8 +3,8 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { auth } from "@/lib/firebaseClient"; // Firebase client config
-import { useThemeClasses } from "@/hooks/useThemeClasses";
+import { auth } from "../../lib/firebaseClient"; // Firebase client config
+import { useThemeClasses } from "../../hooks/useThemeClasses";
 
 export default function LoginPage() {
   const { bgColor, textColor, buttonGreen } = useThemeClasses();
