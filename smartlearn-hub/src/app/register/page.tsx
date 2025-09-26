@@ -9,7 +9,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 export default function RegisterPage() {
   const { bgColor, textColor, buttonGreen } = useThemeClasses();
   const router = useRouter();
-
+  const API_BASE = process.env.NEXT_PUBLIC_API_BASE || "http://localhost:5000/api";
   const [role, setRole] = useState<"student" | "teacher">("student");
   const [form, setForm] = useState({
     fullName: "",
@@ -38,7 +38,7 @@ export default function RegisterPage() {
       const user = userCred.user;
       const idToken = await user.getIdToken();
 
-      const res = await fetch("http://localhost:5000/api/auth/register", {
+      const res = await fetch(`${API_BASE}/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
