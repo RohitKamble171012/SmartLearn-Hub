@@ -59,7 +59,7 @@ export default function Home() {
     visible: {
       y: 0,
       opacity: 1,
-      transition: { type: "spring", stiffness: 100, damping: 10 },
+      transition: { type: "spring" as const, stiffness: 100, damping: 10 },
     },
   };
 
@@ -73,7 +73,7 @@ export default function Home() {
     visible: {
       y: 0,
       opacity: 1,
-      transition: { type: "spring", stiffness: 80, damping: 12 },
+      transition: { type: "spring" as const, stiffness: 80, damping: 12 },
     },
   };
 
@@ -111,7 +111,7 @@ export default function Home() {
         <motion.div
           initial={{ x: -100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.8, type: "spring" }}
+          transition={{ duration: 0.8, type: "spring" as const }}
           className="w-full lg:w-1/2 mb-16 lg:mb-0 flex-shrink-0"
         >
           <div className="relative group">
@@ -150,10 +150,7 @@ export default function Home() {
           >
             Welcome to
           </motion.h1>
-          <motion.div
-            variants={itemVariants}
-            className="flex items-baseline gap-3 relative"
-          >
+          <motion.div variants={itemVariants} className="flex items-baseline gap-3 relative">
             <h2 className="text-4xl md:text-5xl font-black tracking-tight bg-gradient-to-r from-indigo-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">
               SmartLearn Hub
             </h2>
@@ -166,10 +163,7 @@ export default function Home() {
               {learningEmojis[currentEmoji]}
             </motion.span>
           </motion.div>
-          <motion.p
-            variants={itemVariants}
-            className="text-2xl font-medium leading-relaxed max-w-xl"
-          >
+          <motion.p variants={itemVariants} className="text-2xl font-medium leading-relaxed max-w-xl">
             Unleash your potential with{" "}
             <span className="font-bold text-purple-600 dark:text-purple-400">
               AI-powered learning
@@ -250,15 +244,14 @@ export default function Home() {
                   How AI Transforms Student Learning
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
-                  Artificial Intelligence is like having a super-smart study buddy
-                  that never gets tired! It analyzes your learning patterns,
-                  identifies your strengths and weaknesses, and creates a
-                  personalized roadmap to help you succeed.
+                  Artificial Intelligence is like having a super-smart study buddy that never gets
+                  tired! It analyzes your learning patterns, identifies your strengths and
+                  weaknesses, and creates a personalized roadmap to help you succeed.
                 </p>
                 <div className="mt-6 p-4 bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/30 dark:to-purple-900/30 rounded-xl">
                   <p className="text-sm font-semibold text-blue-700 dark:text-blue-300">
-                    💡 Fun Fact: AI can help you learn 40% faster by focusing on
-                    areas where you need the most help!
+                    💡 Fun Fact: AI can help you learn 40% faster by focusing on areas where you
+                    need the most help!
                   </p>
                 </div>
               </div>
@@ -286,7 +279,7 @@ export default function Home() {
                         scale: 1.02,
                         x: 5,
                         transition: {
-                          type: "spring",
+                          type: "spring" as const,
                           stiffness: 300,
                           damping: 20,
                         },
