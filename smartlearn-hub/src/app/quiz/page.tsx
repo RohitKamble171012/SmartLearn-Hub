@@ -16,7 +16,7 @@ export default function QuizListPage() {
   const [quizzes, setQuizzes] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState<UserWithRole | null>(null);
-
+  const API_BASE = process.env.NEXT_PUBLIC_API_BASE || "http://localhost:5000/api";
   useEffect(() => {
     let mounted = true;
 
@@ -25,7 +25,7 @@ export default function QuizListPage() {
       if (fbUser) {
         const token = await getIdToken(fbUser, true);
         // hit backend /api/auth/me to fetch role
-        const res = await fetch("http://localhost:5000/api/auth/me", {
+        const res = await fetch(`${API_BASE}/auth/me`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         const profile = await res.json();
