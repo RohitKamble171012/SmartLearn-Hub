@@ -4,7 +4,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 const router = express.Router();
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" }); // or gemini-1.5-pro
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-001" }); // or gemini-1.5-pro
 
 router.post("/chat", async (req, res) => {
   try {
