@@ -24,7 +24,6 @@ It empowers *students and teachers* with interactive quizzes, AI assistance, pro
 
 ## 🖼 Screenshots
 
-> 📌 Replace the placeholders (/assets/...) with actual screenshots of your deployed app.
 
 ### 🏠 Home / Navbar
 ![Home Page](./assets/home.png)
